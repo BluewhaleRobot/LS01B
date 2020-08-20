@@ -17,11 +17,12 @@
         <param name="angle_disable_max_3" value="-1"/>
         <param name="angle_disable_min_4" value="-1"/>    # 角度制，从angle_disable_min到angle_disable_max之前的值为0
         <param name="angle_disable_max_4" value="-1"/>
-        <param name="robot_radius" value="0.2"/>         # 机器人半径
-        <param name="center_x" value="-0.105"/>            # 雷达坐标系下机器人中心位置
+        <param name="robot_radius" value="0.1"/>         # 机器人半径
+        <param name="center_x" value="-0.25"/>            # 雷达坐标系下机器人中心位置
         <param name="center_y" value="0"/>
     </node>
-
-<!--<node name="rviz" pkg="rviz" type="rviz" args="-d $(find ls01d)/launch/rviz.rviz"/>-->
+    <node pkg="tf" type="static_transform_publisher" name="laserlink_broadcaster" args="-0.25 0 0.3 3.1415926 0 0  base_link  laser 100"/>  
+    <include file="$(find laser_filters)/examples/shadow_filter_ls01b.launch"/>
+<!--<node name="rviz" pkg="rviz" type="rviz" args="-d $(find ls01d)/launch/show.rviz"/>-->
 </launch>
 

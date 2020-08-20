@@ -97,8 +97,8 @@ void LS01B_Node::publishScan(const ros::TimerEvent &)
   sensor_msgs::LaserScan msg;
   msg.header.frame_id = frame_id_;
   msg.header.stamp = start_time;
-  msg.angle_min = 0.0;
-  msg.angle_max = 2*M_PI;
+  msg.angle_min = -M_PI;
+  msg.angle_max = M_PI;
   msg.angle_increment = (msg.angle_max - msg.angle_min) / count;
   msg.range_min = 0.01;
   msg.range_max = 25;
